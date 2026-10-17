@@ -1,12 +1,14 @@
 import json
+import hashlib
 from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 import zipfile
 
 sys.path.insert(0, str(Path(__file__).parents[1] / 'scripts'))
-from source.compatibility import verify_generation
+from source.compatibility import COMPATIBLE_GENERATORS, verify_generation
 from source.romfs_input import create, restore
 from fixtures import source
 
@@ -75,6 +77,24 @@ class RuntimeInputTests(unittest.TestCase):
                         path.unlink()
                     else:
                         path.write_bytes(original)
+
+    def test_reviewed_generator_changes_require_both_exact_revisions(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            upstream, commit, _, _ = source(Path(temporary))
+            path = upstream / 'dm/tools/patch_nso.py'
+            original = path.read_bytes()
+            replacement = b'import helper\n# reviewed optimization\n'
+            allowed = {hashlib.sha256(value).hexdigest() for value in (original, replacement)}
+            with patch.dict(COMPATIBLE_GENERATORS, {'dm/tools/patch_nso.py': allowed}, clear=True):
+                path.write_bytes(replacement)
+                verify_generation(upstream, commit)
+                path.write_bytes(replacement + b'new_rewrite_rule = True\n')
+                with self.assertRaisesRegex(ValueError, 'updated prepared package'):
+                    verify_generation(upstream, commit)
+                path.write_bytes(replacement)
+                allowed.remove(hashlib.sha256(original).hexdigest())
+                with self.assertRaisesRegex(ValueError, 'updated prepared package'):
+                    verify_generation(upstream, commit)
 
 
 class InterfaceCacheTests(unittest.TestCase):

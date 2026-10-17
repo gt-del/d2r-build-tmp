@@ -72,6 +72,8 @@ Download the community-provided [game resources (Data and Legacy)](https://drive
 
 Device requirements: A14 / M1 or newer, with at least 6 GB of memory.
 
+In LiveContainer on an M1 iPad, if opening the character-name keyboard crashes the app, try the `-ios18.ipa` variant, which also runs on iPadOS 26 and later.
+
 ## Update the IPA
 
 Run **Build IPA** again to build the latest official upstream Release. Back up saves, keep the app identifier unchanged, and install over the existing app. Previously imported matching Data and Legacy resources remain reusable.

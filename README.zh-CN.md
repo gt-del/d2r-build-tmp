@@ -72,6 +72,8 @@
 
 设备要求：A14 / M1 及更新芯片，至少 6 GB 内存。
 
+在 M1 iPad 的 LiveContainer 中运行时，若弹出角色起名键盘导致崩溃，可尝试 `-ios18.ipa` 兼容版；它也能在 iPadOS 26 及以上运行。
+
 ## 更新 IPA
 
 再次运行 **Build IPA** 即可构建上游最新正式 Release。更新 IPA 时备份存档，保持应用标识一致并覆盖安装，已导入的相同 Data 和 Legacy 可继续使用。
