@@ -91,7 +91,17 @@
 | `Mac-SHA256SUMS.txt`、`macos-build-report.json` | 校验值与构建详情 |
 
 1. 解压 ZIP，将 `.app` 拖入“应用程序”。
-2. 从[游戏资源目录](https://drive.google.com/drive/folders/1lfjUghi54ohyDxYEtNuEjtGUZyGovaIA)下载 Data，下载全部三个分卷后打开 `.001`，解压得到整个 `D2R Mobile Resources` 文件夹，放在固定位置，例如自己的“游戏”文件夹。已有的 iOS Data 可以直接复用。
+2. 从[游戏资源目录](https://drive.google.com/drive/folders/1lfjUghi54ohyDxYEtNuEjtGUZyGovaIA)下载全部三个 `D2R-Mobile-Resources.zip` 分卷，打开 `.001` 解压，将整个 `D2R Mobile Resources` 文件夹放在固定位置，例如自己的“游戏”文件夹。保留 `data` 内的 `build_manifest.psv` 和 18 个 `.data` 文件。已有的 iOS 资源文件夹符合下方结构时，也可直接复用：
+
+   ```text
+   D2R Mobile Resources/
+   └── data/
+       ├── build_manifest.psv
+       ├── 00-00000000.data
+       └── …（其余 17 个 .data 文件）
+   ```
+
+   若已有资源目录缺少 `build_manifest.psv`，请重新解压上方链接中的完整资源包。
 3. 从“应用程序”打开 App。若系统提示无法验证开发者，进入 **系统设置 → 隐私与安全性 → 仍要打开**，再确认“打开”。详见 Apple 的[打开可信应用说明](https://support.apple.com/zh-cn/102445)。
 4. 应用提示选择资源时，选择包含 `data` 的整个 **`D2R Mobile Resources`** 文件夹。应用会记住这个位置，包内已包含预编译 Metal 着色器。
 

@@ -91,7 +91,17 @@ Run **Build macOS** with the macOS JSON configuration above. After the build, do
 | `Mac-SHA256SUMS.txt`, `macos-build-report.json` | Checksums and build details |
 
 1. Extract the ZIP and drag the `.app` into **Applications**.
-2. Download Data from the [game resource folder](https://drive.google.com/drive/folders/1lfjUghi54ohyDxYEtNuEjtGUZyGovaIA). Download all three split parts and open `.001` to extract the entire `D2R Mobile Resources` folder. Keep it in a stable location, such as your Games folder. Existing iOS Data can be reused here.
+2. Download all three `D2R-Mobile-Resources.zip` parts from the [game resource folder](https://drive.google.com/drive/folders/1lfjUghi54ohyDxYEtNuEjtGUZyGovaIA) and open `.001` to extract them. Keep the entire `D2R Mobile Resources` folder in a stable location, such as your Games folder, including `build_manifest.psv` and all 18 `.data` files inside `data`. You can reuse an existing iOS resource folder with this structure:
+
+   ```text
+   D2R Mobile Resources/
+   └── data/
+       ├── build_manifest.psv
+       ├── 00-00000000.data
+       └── … (the other 17 .data files)
+   ```
+
+   If your existing resource folder is missing `build_manifest.psv`, extract the complete resource archive from the link above again.
 3. Open the app from **Applications**. If macOS blocks it because the developer cannot be verified, open **System Settings → Privacy & Security → Open Anyway**, then confirm **Open**. See Apple’s [instructions for opening an app you trust](https://support.apple.com/102445).
 4. When the app asks for resources, select the entire **`D2R Mobile Resources`** folder containing `data`. The app remembers this location. Metal shaders are included precompiled.
 
