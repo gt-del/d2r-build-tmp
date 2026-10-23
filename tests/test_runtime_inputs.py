@@ -137,6 +137,13 @@ class InterfaceCacheTests(unittest.TestCase):
             text.write_text('new interface text\n')
             second = generation_key('ios', root)
             self.assertNotEqual(second, before_text)
+            wrapper = upstream / 'dm/tools/winlf/run.py'
+            wrapper.parent.mkdir(parents=True)
+            wrapper.write_text('wrapper = 1\n')
+            wrapped = generation_key('ios', root)
+            self.assertNotEqual(wrapped, second)
+            wrapper.write_text('wrapper = 2\n')
+            self.assertNotEqual(generation_key('ios', root), wrapped)
             archive.write_bytes(b'updated prepared input')
             self.assertNotEqual(generation_key('ios', root), second)
 

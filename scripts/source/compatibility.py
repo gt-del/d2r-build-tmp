@@ -17,6 +17,8 @@ COMPATIBLE_GENERATORS = {
     'dm/gfx/tools/msl_retarget.sh': {
         'ec41dab53626ed1499854c39c9d308c02438a3e47c30a07f135b38165f074f72',
         'b443ecdfe3de442922e94ad9269a9aa8c1deb636b9953b8bdc00011111e8ffe2',
+        # Terminology-only comment change.
+        '111ad4b3a97556abd36a77b26d6a4089c424c01e0a8203f6022b316be7502b8f',
     },
     # Reserve a signature without changing module sections; IPA packaging signs Guest.
     'dm/tools/guest_dylib.py': {
@@ -27,6 +29,9 @@ COMPATIBLE_GENERATORS = {
     'dm/tools/patch_nso.py': {
         'c9a0c7574547ab945e4648bd6664e86fa4a77de12253a55e7b464232b2cdf274',
         'd0bee134202bcc7c976c2713ffec2881f77b43bbfc24f4ebde17f0886c3dc22e',
+        # Android/OHOS branches preserve Apple instructions; the loader accepts
+        # old fixup tables without TARGET as Apple (0).
+        'f23802979ceeeab8267b724b2d7f1a568b900777eb8718a0471a41317dc744ee',
     },
 }
 

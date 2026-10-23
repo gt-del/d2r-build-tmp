@@ -31,7 +31,7 @@ def heavy_member(name):
 UI_SCRIPTS = ('dm/ios/tools/gen_assets.py', 'dm/ios/tools/gen_romfs_overlay.py',
               'dm/ios/tools/gen_vault_table.py', 'dm/ios/tools/gen_hud_exp.py',
               'dm/tools/casc_overlay.py', 'dm/tools/gen_bright_levels.py')
-UI_INPUTS = ('dm/ios/docs', 'dm/ios/NativeHUD', 'dm/i18n', 'dm/data',
+UI_INPUTS = ('dm/tools/winlf', 'dm/ios/docs', 'dm/ios/NativeHUD', 'dm/i18n', 'dm/data',
              'dm/gfx/tex', 'dm/gfx/nvn/include', 'dm/gfx/nvn/nvn_tex.c', 'dm/gfx/nvn/nvn_tex.h',
              'dm/ios/Sources/TouchArt/native_art_manifest.json', 'dm/host/dm_kills.c')
 
